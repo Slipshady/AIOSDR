@@ -8,10 +8,9 @@ Tuning: The script sends commands to the R820T2 tuner chip to oscillate at speci
 
 I/Q Sampling: It captures raw "In-phase" and "Quadrature" samples. These are complex numbers representing the phase and amplitude of the radio wave.
 
-Power Analysis: The program calculates the variance of these samples to determine the signal strength in decibels (dB). This is what drives the "Squelch" logic—if the power exceeds your slider's threshold, the program triggers a "Hit."
 
 2. The Multi-Mode Processing Logic
-The program operates in two distinct "Personalities" depending on the band you select:
+The program operates in two distinct modes depending on the band you select:
 
 Voice/Analog Mode (FM, VHF, NOAA)
 When a signal hit is detected, the program temporarily releases control of the hardware and initiates a Subprocess Pipe. It calls rtl_fm to demodulate the signal into audible speech. This audio is simultaneously:
@@ -45,7 +44,6 @@ The Main Loop: Keeps the window responsive.
 
 The Scanner Thread: Runs the heavy math for signal detection.
 
-The UI Update Loop: Refreshes the big green frequency numbers and the scrolling log console in real-time.
 
 Summary of Capabilities
 Automated Monitoring: Watches "known" frequencies and only alerts you when there is activity.
